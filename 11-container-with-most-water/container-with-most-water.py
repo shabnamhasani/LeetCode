@@ -1,6 +1,7 @@
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        """You’re looking for a taller line to potentially increase the area, even though the width shrinks."""
+        """You’re looking for a taller line to potentially increase the area, even though the width shrinks.
+        the container can only hold water up to the height of the shorter line"""
         n=len(height)
         p1,p2,max_area=0,n-1,0
         
