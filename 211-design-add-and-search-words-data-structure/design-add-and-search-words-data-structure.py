@@ -1,3 +1,4 @@
+"""We must recursively explore all valid child paths when encountering ., and only return True if a full path to the end of a word is matched."""
 class TrieNode:
     def __init__(self):
         self.children = {}
@@ -14,7 +15,7 @@ class WordDictionary:
                 node.children[char] = TrieNode()
             node = node.children[char]
         node.is_end_of_word = True
-
+        
     def search(self, word: str) -> bool:
         def dfs(j, node):
             for i in range(j, len(word)):
@@ -31,9 +32,6 @@ class WordDictionary:
             return node.is_end_of_word
 
         return dfs(0, self.root)
-        
-
-
 # Your WordDictionary object will be instantiated and called as such:
 # obj = WordDictionary()
 # obj.addWord(word)
